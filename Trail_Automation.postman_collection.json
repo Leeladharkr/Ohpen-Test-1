@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "3655099a-6e69-4689-ad20-e818d7a13fa5",
+		"name": "Trail_Automation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "StachExchange/info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6cdf8185-a49d-46e6-92cd-bcb32e2d4b74",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"items\");",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var response = JSON.parse(responseBody);",
+							"response.quote_max == 300;",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/info?site={{variable}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"info"
+					],
+					"query": [
+						{
+							"key": "site",
+							"value": "{{variable}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Privileges",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "18eedeeb-888b-44fe-9a88-b7b7e94d78fb",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"privileges\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/privileges?site={{variable}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"privileges"
+					],
+					"query": [
+						{
+							"key": "site",
+							"value": "{{variable}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchtag",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "809909e6-51d5-4eff-a033-fcc522653521",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"items\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/tags?fromdate=1542326400&todate=1542412800&order=desc&sort=popular&site={{variable}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tags"
+					],
+					"query": [
+						{
+							"key": "fromdate",
+							"value": "1542326400"
+						},
+						{
+							"key": "todate",
+							"value": "1542412800"
+						},
+						{
+							"key": "order",
+							"value": "desc"
+						},
+						{
+							"key": "sort",
+							"value": "popular"
+						},
+						{
+							"key": "site",
+							"value": "{{variable}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Badges",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "158c32aa-35d5-4b01-83a6-d11b76aad6cb",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"badge_type\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/badges?fromdate=1542326400&todate=1542326400&order=desc&sort=rank&site={{variable}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"badges"
+					],
+					"query": [
+						{
+							"key": "fromdate",
+							"value": "1542326400"
+						},
+						{
+							"key": "todate",
+							"value": "1542326400"
+						},
+						{
+							"key": "order",
+							"value": "desc"
+						},
+						{
+							"key": "sort",
+							"value": "rank"
+						},
+						{
+							"key": "site",
+							"value": "{{variable}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Suggested_edits",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "443a37b5-1bb6-4ed7-ad38-c12db16afbaa",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"proposing_user\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/suggested-edits?fromdate=1542326400&todate=1542412800&order=desc&min=1542326400&max=1542412800&sort=creation&site={{variable}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"suggested-edits"
+					],
+					"query": [
+						{
+							"key": "fromdate",
+							"value": "1542326400"
+						},
+						{
+							"key": "todate",
+							"value": "1542412800"
+						},
+						{
+							"key": "order",
+							"value": "desc"
+						},
+						{
+							"key": "min",
+							"value": "1542326400"
+						},
+						{
+							"key": "max",
+							"value": "1542412800"
+						},
+						{
+							"key": "sort",
+							"value": "creation"
+						},
+						{
+							"key": "site",
+							"value": "{{variable}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
